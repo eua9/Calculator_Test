@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.example'
+version = '1.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit 5 for testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+    
+    // Swing is part of JDK, no external dependency needed
+    // java.awt and javax.swing are included in JDK
+}
+
+application {
+    mainClass = 'calculator.Main'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// Task to run the calculator application
+task runCalculator(type: JavaExec) {
+    group = 'application'
+    description = 'Run the calculator application'
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'calculator.Main'
+}
+
