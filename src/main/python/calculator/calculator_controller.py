@@ -25,7 +25,7 @@ class CalculatorController(AbstractController):
     MANDATORY: Handle user operations from the view
     
     Args:
-        option: The operation string ("+", "-", "=", "Clr", or digit)
+        option: The operation string ("+", "-", "*", "=", "Clr", or digit)
     """
     def operation(self, option: str) -> None:
         model = self.get_model()
@@ -36,6 +36,8 @@ class CalculatorController(AbstractController):
             model.subtract()
         elif option == CalculatorView.PLUS:
             model.add()
+        elif option == CalculatorView.MULTIPLY:
+            model.multiply()
         elif option == CalculatorView.CLEAR:
             model.clear()
         elif option == CalculatorView.EQUALS:

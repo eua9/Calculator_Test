@@ -1,6 +1,6 @@
 """
 The CalculatorModel class implements the business logic for a simple calculator
-that supports integer addition and subtraction operations.
+that supports integer addition, subtraction, and multiplication operations.
 It extends AbstractModel to provide observer pattern functionality.
 """
 from mvc import AbstractModel, ModelEvent
@@ -49,13 +49,22 @@ class CalculatorModel(AbstractModel):
         self._total = self._current
     
     """
+    MANDATORY: Set the calculator to multiplication mode
+    """
+    def multiply(self) -> None:
+        self._state = "multiply"
+        self._total = self._current
+    
+    """
     MANDATORY: Perform the calculation based on current state
     """
     def equals(self) -> None:
         if self._state == "add":
             self._total += self._current
-        else:
+        elif self._state == "subtract":
             self._total -= self._current
+        elif self._state == "multiply":
+            self._total *= self._current
         self._current = self._total
         # Now notify any interested parties in the new total
         event = ModelEvent(self, 1, "", self._total)
