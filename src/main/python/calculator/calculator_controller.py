@@ -1,8 +1,4 @@
-"""
-The CalculatorController class handles user input and coordinates between
-the CalculatorModel and CalculatorView. It extends AbstractController
-to provide MVC framework integration.
-"""
+
 from mvc import AbstractController
 from .calculator_model import CalculatorModel
 from .calculator_view import CalculatorView
