@@ -1,0 +1,7 @@
+# Python requirements for MVC Calculator
+# tkinter is included with Python standard library, no external dependencies needed
+
+# For development/testing (optional)
+# pytest>=7.0.0
+# pytest-cov>=4.0.0
+

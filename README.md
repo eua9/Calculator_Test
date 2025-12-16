@@ -1,81 +1,53 @@
 # MVC Calculator Application
 
-A complete MVC (Model-View-Controller) calculator application built with Java Swing, following proper software architecture principles and design patterns.
+A complete MVC (Model-View-Controller) calculator application built with Python and tkinter, following proper software architecture principles and design patterns.
 
 ## Project Structure
 
 ```
 Calculator_Test/
 ├── src/
-│   ├── main/java/
-│   │   ├── mvc/           # MVC Framework classes (8 classes)
-│   │   │   ├── Model.java
-│   │   │   ├── Controller.java
-│   │   │   ├── View.java
-│   │   │   ├── ModelEvent.java
-│   │   │   ├── ModelListener.java
-│   │   │   ├── AbstractModel.java
-│   │   │   ├── AbstractController.java
-│   │   │   └── JFrameView.java
-│   │   └── calculator/    # Calculator Application (4 classes)
-│   │       ├── Main.java
-│   │       ├── CalculatorModel.java
-│   │       ├── CalculatorController.java
-│   │       └── CalculatorView.java
-│   └── test/java/         # JUnit Tests
-│       ├── calculator/
-│       │   ├── CalculatorModelTest.java
-│       │   └── CalculatorControllerTest.java
-│       └── mvc/
-│           ├── AbstractModelTest.java
-│           └── ModelEventTest.java
-├── build.gradle           # Gradle build configuration
-└── gradlew                # Gradle wrapper script
+│   └── main/
+│       └── python/
+│           ├── mvc/           # MVC Framework classes (8 modules)
+│           │   ├── __init__.py
+│           │   ├── model.py
+│           │   ├── controller.py
+│           │   ├── view.py
+│           │   ├── model_event.py
+│           │   ├── model_listener.py
+│           │   ├── abstract_model.py
+│           │   ├── abstract_controller.py
+│           │   └── tkinter_view.py
+│           ├── calculator/    # Calculator Application (5 modules)
+│           │   ├── __init__.py
+│           │   ├── main.py
+│           │   ├── calculator_model.py
+│           │   ├── calculator_controller.py
+│           │   └── calculator_view.py
+│           └── main.py        # Entry point
+├── requirements.txt           # Python dependencies
+└── README.md                  # This file
 ```
 
 ## Requirements
 
-- **Java JDK 17** or higher
-- **Gradle** (wrapper included, or install Gradle 8.5+)
-
-## Building the Project
-
-### Option 1: Using Gradle Wrapper (Recommended)
-
-```bash
-# Build the project
-./gradlew build
-
-# Run the application
-./gradlew run
-# or
-./gradlew runCalculator
-
-# Run tests
-./gradlew test
-```
-
-### Option 2: Using Installed Gradle
-
-If you have Gradle installed on your system:
-
-```bash
-# Build the project
-gradle build
-
-# Run the application
-gradle run
-
-# Run tests
-gradle test
-```
+- **Python 3.7** or higher
+- **tkinter** (included with Python standard library)
 
 ## Running the Application
 
-After building, you can run the calculator application:
+Run the calculator application directly with Python:
 
 ```bash
-./gradlew run
+cd src/main/python
+python3 main.py
+```
+
+Or from the project root:
+
+```bash
+python3 src/main/python/main.py
 ```
 
 The calculator GUI will appear with:
@@ -89,24 +61,21 @@ The calculator GUI will appear with:
 - **MVC Architecture**: Proper separation of concerns with Model, View, and Controller
 - **Observer Pattern**: Model notifies views of state changes
 - **Integer Arithmetic**: Supports addition and subtraction operations
-- **Swing GUI**: Modern Java Swing interface with 4x4 button grid
+- **Tkinter GUI**: Modern Python tkinter interface with 4x4 button grid
 - **Event-Driven**: Button clicks trigger controller operations
+- **Type Hints**: Full Python type annotations for better code clarity
 
 ## Testing
 
-The project includes comprehensive JUnit 5 tests:
+To add tests, you can use pytest or unittest:
 
-- **CalculatorModelTest**: Tests calculator business logic (addition, subtraction, storage, clear)
-- **CalculatorControllerTest**: Tests controller operation dispatch
-- **AbstractModelTest**: Tests observer pattern implementation
-- **ModelEventTest**: Tests event class functionality
-
-Run tests with:
 ```bash
-./gradlew test
-```
+# Install pytest (optional)
+pip install pytest
 
-Test reports will be available in `build/reports/tests/test/index.html`
+# Run tests
+pytest src/test/python/
+```
 
 ## Architecture
 
@@ -114,12 +83,12 @@ Test reports will be available in `build/reports/tests/test/index.html`
 
 The framework provides reusable MVC components:
 
-1. **Interfaces**: `Model`, `Controller`, `View`, `ModelListener`
-2. **Event System**: `ModelEvent` extends `ActionEvent` for notifications
+1. **Abstract Base Classes**: `Model`, `Controller`, `View`, `ModelListener`
+2. **Event System**: `ModelEvent` class for notifications
 3. **Abstract Classes**: 
    - `AbstractModel` - Implements observer pattern
    - `AbstractController` - Manages model/view references
-   - `JFrameView` - Swing integration for views
+   - `TkinterView` - Tkinter integration for views
 
 ### Calculator Application (`calculator` package)
 
@@ -127,12 +96,12 @@ Application-specific implementations:
 
 1. **CalculatorModel**: Integer arithmetic logic (add/subtract operations)
 2. **CalculatorController**: Coordinates between model and view
-3. **CalculatorView**: Swing GUI with buttons and display
-4. **Main**: Application entry point
+3. **CalculatorView**: Tkinter GUI with buttons and display
+4. **main**: Application entry point
 
 ## Usage Example
 
-1. Start the application: `./gradlew run`
+1. Start the application: `python3 src/main/python/main.py`
 2. Enter first number by clicking digit buttons
 3. Click `+` for addition or `-` for subtraction
 4. Enter second number

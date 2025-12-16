@@ -1,8 +1,23 @@
-# Gradle
+# Gradle (legacy)
 .gradle/
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !gradle/wrapper/gradle-wrapper.properties
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+*.egg
 
 # IDE
 .idea/
@@ -11,12 +26,15 @@ build/
 .settings/
 .classpath
 .project
+*.swp
+*.swo
+*~
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Compiled classes
+# Compiled classes (legacy Java)
 *.class
 
 # Logs
