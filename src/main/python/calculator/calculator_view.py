@@ -17,6 +17,7 @@ class CalculatorView(TkinterView):
     PLUS = "+"
     MINUS = "-"
     MULTIPLY = "*"
+    DIVIDE = "/"
     CLEAR = "Clr"
     EQUALS = "="
     
@@ -77,7 +78,7 @@ class CalculatorView(TkinterView):
                             command=lambda: self._handle_button_click(self.PLUS))
         btn_plus.grid(row=2, column=3, padx=2, pady=2)
         
-        # Row 4: Clr, =, *
+        # Row 4: Clr, =, *, /
         btn_clear = tk.Button(button_frame, text=self.CLEAR, width=5, height=2, font=('Arial', 14),
                              command=lambda: self._handle_button_click(self.CLEAR))
         btn_clear.grid(row=3, column=0, padx=2, pady=2)
@@ -87,6 +88,9 @@ class CalculatorView(TkinterView):
         btn_multiply = tk.Button(button_frame, text=self.MULTIPLY, width=5, height=2, font=('Arial', 14),
                                 command=lambda: self._handle_button_click(self.MULTIPLY))
         btn_multiply.grid(row=3, column=2, padx=2, pady=2)
+        btn_divide = tk.Button(button_frame, text=self.DIVIDE, width=5, height=2, font=('Arial', 14),
+                              command=lambda: self._handle_button_click(self.DIVIDE))
+        btn_divide.grid(row=3, column=3, padx=2, pady=2)
         
         self.title("Calculator")
         self.resizable(False, False)
